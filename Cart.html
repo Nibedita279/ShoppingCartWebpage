@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Page</title>
+  <link rel="stylesheet" href="Cart.css">
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <ul class="ul">
+      <li class="logo"><img  src="https://s3-alpha-sig.figma.com/img/2727/769b/a74736d502746301ed573ed8940fc322?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O-Fpf2SkF6vSDXZOHbj25cW9eNmyfidx9UdC8JYiJ3VhA6Bfc9Vz9GbCXBA9yMjOd812NTdNWHjVrTEbGZmedGyboxCYJbOq~Ew8jwDbErFmuxkaNAjZNZIAsKBIUn7mzoRF--HFIaxNAcPHwA4frUAXC2pdhoKzB927PtUps7YM9ZrwicwxgVd4hRsBg-8JOQw2lgV3zxQ6FarmlhvMMgPkHuvd6G0RsDvTX9TM5qrlEzQsYDarj-So2-SeN4e0ruhzx3VZr1ApgNdIAJv5xTpkRfPlyw8Gc6sp6oJUSngYZwvsdJ165tLiFEIzl8GR0cj7EHUhRBCeUpZOEnZqgg__" alt="Marmeto Logo"></li>
+    <li class="logo-text"><label>Marmeto</label></li>
+</ul>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <ul class="ul" id="icon">
+        <li><span class="iconify" data-icon="akar-icons:search" data-inline="false"></span></li>
+        <li><span class="iconify" data-icon="akar-icons:heart" data-inline="false" style="background-color: white;"></span></li>
+        <li><span class="iconify" data-icon="ant-design:shopping-cart-outlined" data-inline="false"></span></li>
+    </ul>
+    <!-- <div class="cart-icon">
+      <a href="#"><img src="path-to-cart-icon" alt="Cart Icon"></a>
+    </div> -->
+  </header>
+  <div id="loader" class="loader" style="display: none;">
+    <!-- Simple loader (spinner) -->
+    <div class="spinner"></div>
+  </div>
+  <main>
+    <div class="homeContent" >
+        <div class="content">
+            <img  src="https://s3-alpha-sig.figma.com/img/2727/769b/a74736d502746301ed573ed8940fc322?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O-Fpf2SkF6vSDXZOHbj25cW9eNmyfidx9UdC8JYiJ3VhA6Bfc9Vz9GbCXBA9yMjOd812NTdNWHjVrTEbGZmedGyboxCYJbOq~Ew8jwDbErFmuxkaNAjZNZIAsKBIUn7mzoRF--HFIaxNAcPHwA4frUAXC2pdhoKzB927PtUps7YM9ZrwicwxgVd4hRsBg-8JOQw2lgV3zxQ6FarmlhvMMgPkHuvd6G0RsDvTX9TM5qrlEzQsYDarj-So2-SeN4e0ruhzx3VZr1ApgNdIAJv5xTpkRfPlyw8Gc6sp6oJUSngYZwvsdJ165tLiFEIzl8GR0cj7EHUhRBCeUpZOEnZqgg__" alt="Marmeto Logo">
+            <p  class="cart">Cart </p>
+            <p class="home">Home <span  class="iconify rotate-right" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> <span style="font-size: medium
+            60;">Cart</span></p>
+        </div>
+     
+    </div>
+    <section class="cart-content">
+       
+      <div >
+        <div class="itemName">
+            <ul class="ulItem">
+                <li><span>product</span></li>
+                <li><span>price</span></li>
+                <li><span>quantity</span></li>
+                <li><span>subTotal</span></li>
+            </ul>
+        </div>
+        <br>
+        <div class="cart-items">
+        <!-- Items will be dynamically loaded here -->
+      </div>
+    </div>
+      <div class="cart-totals">
+        <h3 style="text-align: center;    margin-top: 5px;">Cart Totals</h3>
+        <p style="margin-left: 30px;margin-top: 50px;" >Subtotal <span style="margin-left: 80px;color:#898989 ;" id="subtotal">Rs. 0.00</span></p>
+        <p style="margin-left: 30px;">Total <span style="margin-left: 80px;color: #B88E2F;" id="total">Rs. 0.00</span></p>
+        <button class="checkout-btn" id="checkout">Check Out</button>
+      </div>
+      <!-- Modal for remove confirmation -->
+      <div id="removeModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to remove this item?</p>
+            <button id="confirmRemoveBtn">Yes</button>
+        <button  id="cancelRemoveBtn">No</button>
+        </div>
+    </div>
+    </section>
+  </main>
+
+  <footer class="footer-section">
+    <div class="footer-container">
+        <div class="footer-item">
+            <i class="fas fa-trophy"></i>
+            <p>High quality <br> <span style="color:#898989;font-size: 12px;">crafted from top materials</span></p>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-shield-alt"></i>
+            <p>Warranty Protection<br> <span style="color:#898989;font-size: 12px;">over 2 years</span></p>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-shipping-fast"></i>
+            <p>Free Shipping<br> <span style="color:#898989;font-size: 12px;">order above 150 $</span></p>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-headset"></i>
+            <p>24/7 Support<br> <span style="color:#898989;font-size: 12px;">Deticated support</span></p>
+        </div>
+    </div>
+</footer>
+  <script src="Cart.js"></script>
+</body>
+</html>
